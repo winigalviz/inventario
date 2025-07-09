@@ -17,7 +17,7 @@ public class CategoryEntity {
     @Column(nullable = false)
     private String description;
 
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "category")
     private List<ProductEntity> products;
 
     public Integer getId() {

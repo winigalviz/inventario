@@ -5,9 +5,11 @@ import com.gestion.inventario.models.entities.CategoryEntity;
 import com.gestion.inventario.models.repositories.CategoryRepository;
 import com.gestion.inventario.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
