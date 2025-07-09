@@ -1,0 +1,63 @@
+package com.gestion.inventario.models.entities;
+
+import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
+
+public class InputEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private ProductEntity product;
+
+    @Column(nullable = false)
+    private Integer quantity;
+
+    private LocalDateTime dateIn = LocalDateTime.now();
+
+    private String remarks;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public ProductEntity getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductEntity product) {
+        this.product = product;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public LocalDateTime getDateIn() {
+        return dateIn;
+    }
+
+    public void setDateIn(LocalDateTime dateIn) {
+        this.dateIn = dateIn;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+}
