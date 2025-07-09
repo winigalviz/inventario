@@ -1,36 +1,26 @@
-package com.gestion.inventario.models.entities;
+package com.gestion.inventario.models.dto.request;
 
-import jakarta.persistence.*;
+import com.gestion.inventario.models.entities.CategoryEntity;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "products")
-public class ProductEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class ProductSaveRequest {
 
-    @Column(nullable = false, length = 150)
+    @NotNull(message = "El name no puede ser nulo")
+    @NotBlank(message = "El name no puede ser nulo")
     private String name;
 
     private String description;
 
-    @Column(nullable = false)
+    @NotNull(message = "El stock no puede ser nulo")
+    @NotBlank(message = "El stock no puede ser nulo")
     private Integer stock = 0;
 
-    @Column(nullable = false)
+    @NotNull(message = "El precio no puede ser nulo")
+    @NotBlank(message = "El precio no puede ser nulo")
     private Double price;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity category;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -70,5 +60,16 @@ public class ProductEntity {
 
     public void setCategory(CategoryEntity category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductSaveRequest{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", stock=" + stock +
+                ", price=" + price +
+                ", category=" + category +
+                '}';
     }
 }
