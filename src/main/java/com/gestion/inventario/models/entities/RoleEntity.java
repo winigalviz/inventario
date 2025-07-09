@@ -1,5 +1,6 @@
 package com.gestion.inventario.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -15,6 +16,7 @@ public class RoleEntity {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
+    @JsonIgnore
     private Set<UserEntity> users;
 
     public Integer getId() {
