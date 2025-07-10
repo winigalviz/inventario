@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
-public class CategorySaveRequest {
+public class CategoryRequest {
 
     @NotBlank(message = "El name no puede ser vacio")
     @NotNull(message = "El name no puede ser nulo")
